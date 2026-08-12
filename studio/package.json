@@ -11,11 +11,11 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "dependencies": {
-    "@sanity/vision": "^4.20.3",
+    "@sanity/vision": "4.20.3",
     "react": "^19.1",
     "react-dom": "^19.1",
     "rxjs": "^7.8.1",
-    "sanity": "^4.20.3",
+    "sanity": "4.20.3",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
