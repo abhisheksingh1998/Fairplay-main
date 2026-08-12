@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { imageUrl } from "@/lib/sanity";
+import { blogImage } from "@/lib/blogImages";
 import type { PostCard } from "@/lib/types";
 
 export function BlogPreview({
@@ -30,7 +30,7 @@ export function BlogPreview({
               <div className="blog-img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl(post.mainImage) || "/images/logo.png"}
+                  src={blogImage(post)}
                   alt={post.title}
                 />
               </div>

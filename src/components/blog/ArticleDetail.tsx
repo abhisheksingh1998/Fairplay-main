@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { useWhatsAppUrl } from "@/components/SiteSettingsProvider";
+import { blogImage } from "@/lib/blogImages";
 import { imageUrl } from "@/lib/sanity";
 import { formatPostDate } from "@/lib/fallbacks";
 import type { PostCard, PostDetail } from "@/lib/types";
@@ -76,7 +77,7 @@ function ArticleSidebar({ posts }: { posts: PostCard[] }) {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl(post.mainImage, 150) || "/images/logo.png"}
+                  src={blogImage(post)}
                   alt={post.title || "Blog post"}
                 />
                 <div>
@@ -204,7 +205,7 @@ export function ArticleDetail({
             <div className="featured-banner-wrapper" data-aos="fade-up">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={imageUrl(article.mainImage) || "/images/logo.png"}
+                src={blogImage(article)}
                 alt={article.title}
               />
             </div>
@@ -296,7 +297,7 @@ export function ArticleDetail({
                   </span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={imageUrl(post.mainImage) || "/images/logo.png"}
+                    src={blogImage(post)}
                     alt={post.title}
                   />
                 </div>

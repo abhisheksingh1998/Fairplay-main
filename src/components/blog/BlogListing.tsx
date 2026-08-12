@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { imageUrl } from "@/lib/sanity";
+import { blogImage } from "@/lib/blogImages";
 import { formatPostDate } from "@/lib/fallbacks";
 import type { PostCard } from "@/lib/types";
 
@@ -47,7 +47,7 @@ export function BlogListing({ articles }: { articles: PostCard[] }) {
               </span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={imageUrl(featured.mainImage) || "/images/logo.png"}
+                src={blogImage(featured)}
                 alt={featured.title}
               />
             </div>
@@ -95,7 +95,7 @@ export function BlogListing({ articles }: { articles: PostCard[] }) {
                 </span>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl(article.mainImage) || "/images/logo.png"}
+                  src={blogImage(article)}
                   alt={article.title}
                 />
               </div>
