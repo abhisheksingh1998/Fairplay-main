@@ -1,7 +1,6 @@
 "use client";
 
 import { useWhatsAppUrl } from "@/components/SiteSettingsProvider";
-import { imageUrl } from "@/lib/sanity";
 import type { HomePage } from "@/lib/types";
 
 export function BetBig({
@@ -19,7 +18,7 @@ export function BetBig({
           <div className="bet-big-img-box" data-aos="fade-right">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={imageUrl(section.image) || "/images/win-big.jpg"}
+              src="/images/win-big.jpg"
               alt="Bet Big Win Bigger"
             />
           </div>
