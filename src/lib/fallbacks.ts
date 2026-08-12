@@ -1,4 +1,4 @@
-﻿import type {HomePage, PostDetail, SiteSettings} from './types'
+import type {HomePage, PostDetail, SiteSettings} from './types'
 import articlesJson from '@/data/articles.json'
 import {WHATSAPP_URL} from '@/data/site'
 
