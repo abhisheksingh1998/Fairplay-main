@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSiteSettings, useWhatsAppUrl } from "@/components/SiteSettingsProvider";
-import { imageUrl } from "@/lib/sanity";
 import { navLinksHome, navLinksInner } from "@/data/site";
 
 type HeaderProps = {
@@ -25,9 +24,8 @@ export function Header({ variant = "home", active = null }: HeaderProps) {
         ? navLinksHome
         : navLinksInner;
 
-  const logoSrc = imageUrl(settings.logo, 200) || "/images/logo.png";
-  const logoAlt =
-    (typeof settings.logo === "object" && settings.logo?.alt) || "Logo";
+  const logoSrc = "/images/logo.png";
+  const logoAlt = "Mahadev Logo";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);

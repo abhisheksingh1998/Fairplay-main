@@ -44,10 +44,8 @@ export function Footer({ variant = "home" }: { variant?: "home" | "inner" }) {
         <div className="footer-grid">
           <div>
             <Link href="/" className="logo">
-              <div className="logo-icon">
-                <i className="fa-solid fa-crown" />
-              </div>
-              FAIR <span>PLAY</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.png" alt="Mahadev Logo" />
             </Link>
             <p className="footer-desc">
               {footer?.description ||
