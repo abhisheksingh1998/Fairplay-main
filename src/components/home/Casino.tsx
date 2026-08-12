@@ -1,7 +1,6 @@
 "use client";
 
 import { useWhatsAppUrl } from "@/components/SiteSettingsProvider";
-import { imageUrl } from "@/lib/sanity";
 import type { CasinoGame } from "@/lib/types";
 
 const CASINO_FOOTER_LABELS = [
@@ -13,6 +12,17 @@ const CASINO_FOOTER_LABELS = [
   "EZUGI",
   "Poker",
   "SPRIBE",
+] as const;
+
+const CASINO_IMAGES = [
+  "/images/7up-7down.jpg",
+  "/images/dragon-tiger.jpg",
+  "/images/roulette.jpg",
+  "/images/teenpatti.jpg",
+  "/images/rummy.jpg",
+  "/images/mega-fishing.jpg",
+  "/images/poker.jpg",
+  "/images/coin-toss.jpg",
 ] as const;
 
 export function Casino({
@@ -61,7 +71,7 @@ export function Casino({
                   ) : null}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={imageUrl(game.image) || "/images/7up-7down.jpg"}
+                    src={CASINO_IMAGES[index] || "/images/7up-7down.jpg"}
                     alt={game.name || "Casino game"}
                   />
                 </div>
