@@ -107,10 +107,28 @@ const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
 
 const postSlugsQuery = `*[_type == "post" && defined(slug.current)]{"slug": slug.current}`
 
+function replaceMahadevBook<T>(value: T): T {
+  if (typeof value === 'string') {
+    return value.replace(/Mahadev Book/g, 'Fairplay') as T
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => replaceMahadevBook(item)) as T
+  }
+  if (value && typeof value === 'object') {
+    const next: Record<string, unknown> = {}
+    for (const [key, nested] of Object.entries(value as Record<string, unknown>)) {
+      next[key] = replaceMahadevBook(nested)
+    }
+    return next as T
+  }
+  return value
+}
+
 async function safeFetch<T>(query: string, params: Record<string, unknown> = {}): Promise<T | null> {
   if (!isSanityConfigured) return null
   try {
-    return await client.fetch<T>(query, params)
+    const data = await client.fetch<T>(query, params)
+    return data == null ? data : replaceMahadevBook(data)
   } catch (error) {
     console.error('Sanity fetch failed:', error)
     return null
@@ -119,24 +137,25 @@ async function safeFetch<T>(query: string, params: Record<string, unknown> = {})
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   const data = await safeFetch<SiteSettings>(siteSettingsQuery)
-  return data ?? fallbackSiteSettings
+  return replaceMahadevBook(data ?? fallbackSiteSettings)
 }
 
 export async function getHomePage(): Promise<HomePage> {
   const data = await safeFetch<HomePage>(homePageQuery)
-  return data ?? fallbackHomePage
+  return replaceMahadevBook(data ?? fallbackHomePage)
 }
 
 export async function getPosts(): Promise<PostCard[]> {
   const data = await safeFetch<PostCard[]>(postsQuery)
-  if (data && data.length > 0) return data
-  return fallbackPosts
+  if (data && data.length > 0) return replaceMahadevBook(data)
+  return replaceMahadevBook(fallbackPosts)
 }
 
 export async function getPostBySlug(slug: string): Promise<PostDetail | null> {
   const data = await safeFetch<PostDetail>(postBySlugQuery, {slug})
-  if (data) return data
-  return fallbackPosts.find((p) => p.slug === slug) ?? null
+  if (data) return replaceMahadevBook(data)
+  const fallback = fallbackPosts.find((p) => p.slug === slug) ?? null
+  return fallback ? replaceMahadevBook(fallback) : null
 }
 
 export async function getPostSlugs(): Promise<string[]> {
