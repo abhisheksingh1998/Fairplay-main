@@ -1,5 +1,11 @@
-import { imageUrl } from "@/lib/sanity";
 import type { FeatureItem } from "@/lib/types";
+
+const FEATURE_IMAGES = [
+  "/images/live-&-pre-match-betting.jpg",
+  "/images/secure-transactions.jpg",
+  "/images/competitive-odds.jpg",
+  "/images/24-7-live-coverage.jpg",
+] as const;
 
 export function WhyUs({
   title,
@@ -31,7 +37,7 @@ export function WhyUs({
               <div className="feature-img-wrapper">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl(feature.image) || "/images/competitive-odds.jpg"}
+                  src={FEATURE_IMAGES[index] || "/images/competitive-odds.jpg"}
                   alt={feature.title || "Feature"}
                 />
               </div>
