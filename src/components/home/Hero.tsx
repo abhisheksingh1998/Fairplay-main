@@ -3,8 +3,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { useWhatsAppUrl } from "@/components/SiteSettingsProvider";
-import { imageUrl } from "@/lib/sanity";
 import type { HeroSlide } from "@/lib/types";
+
+const heroBanners = [
+  "/images/home-banner-1.jpg",
+  "/images/home-banner-2.jpg",
+  "/images/home-banner-3.jpg",
+  "/images/home-banner-4.jpg",
+];
 
 export function Hero({ slides }: { slides: HeroSlide[] }) {
   const whatsappUrl = useWhatsAppUrl();
@@ -24,7 +30,7 @@ export function Hero({ slides }: { slides: HeroSlide[] }) {
         style={{ width: "100%", height: "100%" }}
       >
         {slides.map((slide, index) => {
-          const bg = imageUrl(slide.image) || "/images/home-banner-1.jpg";
+          const bg = heroBanners[index % heroBanners.length];
           return (
             <SwiperSlide
               key={`${slide.title}-${index}`}
