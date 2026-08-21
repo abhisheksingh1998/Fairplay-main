@@ -1,4 +1,4 @@
-export const WHATSAPP_URL = "https://wa.link/fairplayonline";
+export const WHATSAPP_URL = "https://wa.link/fairplaylive";
 
 export const SITE_NAME = "Fairplay";
 
