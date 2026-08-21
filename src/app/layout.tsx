@@ -39,8 +39,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export const revalidate = 60
 
-const GA_MEASUREMENT_ID = 'G-LCSBS5EDRN'
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -51,24 +49,26 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${cinzel.variable} ${jakarta.variable}`}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          id="google-analytics-script"
+          src="https://www.googletagmanager.com/gtag/js?id=G-LCSBS5EDRN"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LCSBS5EDRN');
+          `}
+        </Script>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
       </head>
       <body>
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
         <SiteSettingsProvider settings={settings}>
           <AOSProvider>
             {children}
