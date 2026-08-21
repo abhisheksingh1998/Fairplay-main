@@ -85,6 +85,64 @@ const ARTICLE_SEO: Record<
       },
     ],
   },
+  "mahadev-book-best-cricket-betting-exchange-sites-in-india": {
+    title: "Fairplay – Best Cricket Betting Exchange Sites in India",
+    description:
+      "Compare the best cricket betting exchange sites in India with Fairplay — top odds, live in-play markets, fast withdrawals, and a trusted betting ID.",
+    canonical:
+      "https://fairplaylive.io/blog/mahadev-book-best-cricket-betting-exchange-sites-in-india",
+    ogImage: "https://fairplaylive.io/images/logo.png",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id":
+            "https://fairplaylive.io/blog/mahadev-book-best-cricket-betting-exchange-sites-in-india",
+        },
+        headline: "Fairplay – Best Cricket Betting Exchange Sites in India",
+        description:
+          "Compare the best cricket betting exchange sites in India with Fairplay — top odds, live in-play markets, fast withdrawals, and a trusted betting ID.",
+        image: "https://fairplaylive.io/blog-image.jpg",
+        author: { "@type": "Organization", name: "Fairplay" },
+        publisher: {
+          "@type": "Organization",
+          name: "Fairplay",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://fairplaylive.io/images/logo.png",
+          },
+        },
+        datePublished: "2026-08-01",
+        dateModified: "2026-08-01",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://fairplaylive.io/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: "https://fairplaylive.io/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Fairplay – Best Cricket Betting Exchange Sites in India",
+            item: "https://fairplaylive.io/blog/mahadev-book-best-cricket-betting-exchange-sites-in-india",
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export async function generateStaticParams() {
