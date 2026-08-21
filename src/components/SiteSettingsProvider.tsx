@@ -3,6 +3,7 @@
 import {createContext, useContext} from 'react'
 import type {SiteSettings} from '@/lib/types'
 import {fallbackSiteSettings} from '@/lib/fallbacks'
+import {WHATSAPP_URL} from '@/data/site'
 
 const SiteSettingsContext = createContext<SiteSettings>(fallbackSiteSettings)
 
@@ -25,6 +26,5 @@ export function useSiteSettings() {
 }
 
 export function useWhatsAppUrl() {
-  const settings = useSiteSettings()
-  return settings.whatsappUrl || fallbackSiteSettings.whatsappUrl || '#'
+  return WHATSAPP_URL
 }
