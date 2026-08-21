@@ -136,6 +136,9 @@ const ARTICLE_SEO: Record<
           {
             "@type": "ListItem",
             position: 3,
+            name: "Fairplay – Best Cricket Betting Exchange Sites in India",
+            item: "https://fairplaylive.io/blog/mahadev-book-best-cricket-betting-exchange-sites-in-india",
+          },
         ],
       },
     ],
