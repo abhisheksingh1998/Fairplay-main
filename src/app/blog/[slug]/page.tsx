@@ -136,8 +136,65 @@ const ARTICLE_SEO: Record<
           {
             "@type": "ListItem",
             position: 3,
-            name: "Fairplay – Best Cricket Betting Exchange Sites in India",
-            item: "https://fairplaylive.io/blog/mahadev-book-best-cricket-betting-exchange-sites-in-india",
+        ],
+      },
+    ],
+  },
+  "mahadev-book-your-ultimate-online-cricket-betting-id-provider-in-india": {
+    title:
+      "Fairplay: Your Ultimate Online Cricket Betting ID Provider in India",
+    description:
+      "Get your online cricket betting ID with Fairplay, India's trusted provider — instant activation, secure play, live odds, and 24/7 WhatsApp support.",
+    canonical:
+      "https://fairplaylive.io/blog/mahadev-book-your-ultimate-online-cricket-betting-id-provider-in-india",
+    ogImage: "https://fairplaylive.io/images/logo.png",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id":
+            "https://fairplaylive.io/blog/mahadev-book-your-ultimate-online-cricket-betting-id-provider-in-india",
+        },
+        headline:
+          "Fairplay: Your Ultimate Online Cricket Betting ID Provider in India",
+        description:
+          "Get your online cricket betting ID with Fairplay, India's trusted provider — instant activation, secure play, live odds, and 24/7 WhatsApp support.",
+        image: "https://fairplaylive.io/blog-image.jpg",
+        author: { "@type": "Organization", name: "Fairplay" },
+        publisher: {
+          "@type": "Organization",
+          name: "Fairplay",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://fairplaylive.io/images/logo.png",
+          },
+        },
+        datePublished: "2026-08-01",
+        dateModified: "2026-08-01",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://fairplaylive.io/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: "https://fairplaylive.io/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Fairplay: Your Ultimate Online Cricket Betting ID Provider in India",
+            item: "https://fairplaylive.io/blog/mahadev-book-your-ultimate-online-cricket-betting-id-provider-in-india",
           },
         ],
       },
