@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/home/Hero";
@@ -12,6 +13,58 @@ import { getHomePage, getPosts } from "@/lib/queries";
 
 export const revalidate = 60;
 
+const HOME_TITLE =
+  "Fairplay – Online Sports Betting & Cricket ID Provider in India";
+const HOME_DESCRIPTION =
+  "Fairplay offers premium online sports betting and cricket betting IDs in India with live match odds, fast secure payouts, and 24/7 support. Bet big, win bigger.";
+const HOME_URL = "https://fairplaylive.io/";
+const HOME_IMAGE = "https://fairplaylive.io/images/logo.png";
+
+export const metadata: Metadata = {
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: HOME_URL,
+  },
+  openGraph: {
+    type: "website",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: HOME_URL,
+    siteName: "Fairplay",
+    images: [
+      {
+        url: HOME_IMAGE,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [HOME_IMAGE],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Fairplay",
+  url: HOME_URL,
+  logo: HOME_IMAGE,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Fairplay",
+  url: HOME_URL,
+};
+
 export default async function HomePage() {
   const [home, posts] = await Promise.all([getHomePage(), getPosts()]);
   const featured =
@@ -20,6 +73,18 @@ export default async function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteJsonLd),
+        }}
+      />
       <Header variant="home" />
       <Hero slides={home.heroSlides || []} />
       <LiveMatches
