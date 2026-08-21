@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import Script from 'next/script'
 import {Cinzel, Plus_Jakarta_Sans} from 'next/font/google'
 import './globals.css'
 import 'aos/dist/aos.css'
@@ -38,6 +39,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export const revalidate = 60
 
+const GA_MEASUREMENT_ID = 'G-LCSBS5EDRN'
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +57,18 @@ export default async function RootLayout({
         />
       </head>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <SiteSettingsProvider settings={settings}>
           <AOSProvider>
             {children}
